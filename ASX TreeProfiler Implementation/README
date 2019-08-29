@@ -1,0 +1,32 @@
+README
+
+## SYNOPSIS
+TreeProfiler.py is a program that loads ASX stock data taken from https://www.asxhistoricaldata.com/ into a tree implementation of your choice.
+
+Usage:
+	TreeProfiler.py - run "python3 TreeProfiler.py" at terminal to see documentation
+	
+	reportDataGenerator.py - run "python3 reportDataGenerator.py" at terminal to generate tree statistics, outputs relevant plots.
+        	Can be passed an integer via command line to indicate the number of runs. However, n runs generates 13n rows of data, so can be slow.
+                Default number of runs is 20.
+
+## CONTENTS
+dsaTrees: Directory containing the necessary scripts for TreeProfiler.py to work correctly
+	dsaLinkedList.py - linked list data type
+	dsaTrees.py - binary search tree and b-tree data type. 2,3,4-Tree implemented as a B-tree with 3 keys per node
+	fileIO.py - reads ASX share csv file and creates a linked list of Share objects or loads binary pickle file. Also saves trees to csv or binary
+	shares.py - Share class from which Share objects will be generated using ASX data
+
+outputData: Only present once TreeProfiler.py or reportDataGenerator.py have been run.
+	randShares.txt - the csv files generated from the ASX csv files in testData directory
+	TreeProfilerOutput.log - the log file of tree statistics generated from runnings reportDataGenerator.py or TreeProfiler.py in profiling mode
+	Various plots outputted by reportDataGenerator.py
+
+reportDataGenerator.py - takes any asx csv files from the testData directory and randomly chooses shares from each file and then loads the data into
+                         Randomly selected trees. Plots of tree statistics outputted to outputData directory. Doubles as informal unit test for dsaTrees.py
+ 			 since it tests all aspects of each tree.
+
+testData: Directory containing ASX csv data to randomly generate trees from
+
+TreeProfiler.py - program to generate Binary Search Trees, B-Trees  or 234-Trees from ASX stock data
+ 
